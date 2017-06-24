@@ -83,7 +83,7 @@ img {
 }
 .cam
 {
-	object-fit: contain;
+  object-fit: contain;
 
 }
 svg:not(:root) {
@@ -4365,11 +4365,13 @@ a.list-group-item.active > .badge,
   padding: 30px;
   margin-bottom: 30px;
   color: inherit;
-  background-color: #ebebeb;
+  background-color: #FE28A9;
 }
 .jumbotron h1,
 .jumbotron .h1 {
   color: inherit;
+  text-align: center;
+  color: #FFFFFF;
 }
 .jumbotron p {
   margin-bottom: 15px;
