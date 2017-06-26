@@ -4361,6 +4361,11 @@ a.list-group-item.active > .badge,
 .nav-pills > li > a > .badge {
   margin-left: 3px;
 }
+.lightbox {
+  color: inherit;
+  padding: 30px;
+  margin-bottom: 30px;
+}
 .jumbotron {
   padding: 30px;
   margin-bottom: 30px;
