@@ -4,10 +4,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8">
   <!--TITLE-->
   <title>La Bella Salon</title>
   <!--META-->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!--CSS-->
 	<link rel="stylesheet" text="text/css" href="assets/css/animate.css">
 	<link rel="stylesheet" text="text/css" href="assets/css/bootstrap.css">
@@ -19,14 +20,139 @@
   <!--FAVICON-->
 	<link href="favicon.ico" rel="shortcut icon">
 </head>
-<body>
+<body itemscope itemtype="http://schema.org/WebApplication">
+<div class="bg"></div>
 <div class="jumbotron">
 	<h1 class="display-3">La Bella Salon</h1>	
+	<p class="display-3">Excellence in hair and nail styling.</p>
 </div>
-<blockquote class="blockquote">
-	<p class="mb-0">Excellence in hair and nail styling.</p>
-</blockquote>
+<div class="container">
+	<blockquote class="blockquote">
+		<p class="mb-0">
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
+    Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
+    dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
+    Aliquam in felis sit amet augue.
+		</p>
+	</blockquote>
+	<div class="row">
+    <h2>Page Content</h2>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
+    Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
+    dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
+    Aliquam in felis sit amet augue.
+    <br>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
+    Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
+    dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
+    Aliquam in felis sit amet augue.
+    <br>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
+    Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
+    dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
+    Aliquam in felis sit amet augue.
+    <br>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
+    Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
+    dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
+    Aliquam in felis sit amet augue.
+  </div>
+  <hr>
+  <div class="row">
+    <h2>Page Content</h2>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
+    Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
+    dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
+    Aliquam in felis sit amet augue.
+    <h2>Page Content</h2>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
+    Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
+    dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
+    Aliquam in felis sit amet augue.
+    <h2>Page Content</h2>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
+    Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
+    dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
+    Aliquam in felis sit amet augue.
+    
+  </div>
+  <hr>
+  <div class="row">
+    <h2>Page Content</h2>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
+    Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
+    dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
+    Aliquam in felis sit amet augue.
+  </div>
+</div>
+
+<hr>
+<hr>
+<hr>
+
+<div class="container">
+	<div class="row">
+      <div class="col-md-12 text-center"><p>The End.</p></div>
+    </div>
+</div>
+
+<!--CSS-->
+<style type="text/css">
+	.bg {
+  background: url('assets/img/lbs-front.jpg') no-repeat center center;
+  position: fixed; /* Placed outside of jumbotron container */
+  width: 100%;
+  height: 400px; /*same height as jumbotron */
+  top:0;
+  left:0;
+  z-index: -1;
+}
+
+.jumbotron {
+	margin-bottom: 0px;
+  height: 400px;
+  color: white;
+  text-shadow: black 0.3em 0.3em 0.3em;
+  background:transparent;
+}
+</style>
+
 <!--JS-->
+<!-- Facebook Sync -->
+<script>
+          window.fbAsyncInit = function() {
+            FB.init({
+              appId      : '482723745132387',
+              xfbml      : true,
+              version    : 'v2.7'
+            });
+          };
+          (function(d, s, id){
+             var js, fjs = d.getElementsByTagName(s)[0];
+             if (d.getElementById(id)) {return;}
+             js = d.createElement(s); js.id = id;
+             js.src = "//connect.facebook.net/en_US/sdk.js";
+             fjs.parentNode.insertBefore(js, fjs);
+           }(document, 'script', 'facebook-jssdk'));
+        </script>
+<!-- External Links -->
+<script type="text/javascript">
+	jquery(document.links)
+	.filter(function(){ return this.hostname != window.location.hostname;})
+	.attr('target','_blank');
+</script>
+<!--Jumbotron-->
+<script type="text/javascript">
+	var jumboHeight = $('.jumbotron').outerHeight();
+function parallax(){
+    var scrolled = $(window).scrollTop();
+    $('.bg').css('height', (jumboHeight-scrolled) + 'px');
+}
+
+$(window).scroll(function(e){
+    parallax();
+});
+</script>
 <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="assets/js/jquery.isotope.js"></script>
 <script type="text/javascript" src="assets/js/jquery.js"></script>
