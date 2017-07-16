@@ -1,0 +1,5 @@
+ErrorDocument 404 /404.html
+
+<Files />
+    AddType application/x-httpd-php .html
+</Files>

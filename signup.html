@@ -1,0 +1,439 @@
+<!--La Bella Website-->
+<!--amp &#38; quote &#39; -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<!--TITLE-->
+	<title>La Bella Salon</title>
+	<!--META-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!--CSS-->
+	<link rel="stylesheet" text="text/css" href="assets/css/animate.css">
+	<link rel="stylesheet" text="text/css" href="assets/css/bootstrap.css">
+	<link rel="stylesheet" text="text/css" href="assets/css/font-awesome.css">
+	<link rel="stylesheet" text="text/css" href="assets/css/nexus.css">
+	<link rel="stylesheet" text="text/css" href="assets/css/responsive.css">
+	<!--FONTS-->
+	<style type="text/css">
+		@import url('https://fonts.googleapis.com/css?family=Pacifico');
+	</style>
+	<!--FAVICON-->
+	<link href="favicon.ico" rel="shortcut icon">
+</head>
+<body itemscope itemtype="http://schema.org/WebApplication">
+<!--PHP-->
+	<?php
+	// define variables and set to empty values
+	$name = $email = $gender = $comment = $website = "";
+
+	if ($_SERVER["REQUEST_METHOD"] == "POST") {
+	$fname = test_input($_POST["fname"]);
+	$lname = test_input($_POST["lname"]);
+	$email = test_input($_POST["email"]);
+	$pword = test_input($_POST["pword"]);
+	$comment = test_input($_POST["comment"]);
+	$gender = test_input($_POST["gender"]);
+}
+
+function test_input($data) {
+$data = trim($data);
+$data = stripslashes($data);
+$data = htmlspecialchars($data);
+return $data;
+}
+?>
+
+<?php
+// define variables and set to empty values
+$nameErr = $emailErr = $genderErr = $websiteErr = "";
+$name = $email = $gender = $comment = $website = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  if (empty($_POST["fname"])) {
+    $fnameErr = "First Name is required";
+  } else {
+    $fname = test_input($_POST["fname"]);
+    // checks for letters and whitespaces
+	if (!preg_match("/^[a-zA-Z ]*$/",$fname)) {
+  $fnameErr = "Only letters and white space allowed"; 
+}
+  }
+
+  if (empty($_POST["lname"])) {
+    $lnameErr = "Last Name is required";
+  } else {
+    $lname = test_input($_POST["lname"]);
+    // checks for letters and whitespaces
+	if (!preg_match("/^[a-zA-Z ]*$/",$lname)) {
+  $lnameErr = "Only letters and white space allowed"; 
+  }
+
+  if (empty($_POST["email"])) {
+    $emailErr = "Email is required";
+  } else {
+    $email = test_input($_POST["email"]);
+    // checks email format
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+  $emailErr = "Invalid email format"; 
+}
+  }
+
+  if (empty($_POST["pword"])) {
+    $pwordErr = "Password is required";
+  } else {
+    $pword = test_input($_POST["pword"]);
+  }
+
+  if (empty($_POST["rpword"])) {
+    $rpwordErr = "Re-type Password is required";
+  } else {
+    $rpword = test_input($_POST["rpword"]);
+  }
+
+  if (empty($_POST["comment"])) {
+    $comment = "";
+  } else {
+    $comment = test_input($_POST["comment"]);
+  }
+
+  if (empty($_POST["gender"])) {
+    $genderErr = "Gender is required";
+  } else {
+    $gender = test_input($_POST["gender"]);
+  }
+}
+?>
+<!--END PHP-->
+<p id="top">
+	<div class="wallpaper">
+		<ul class="nav navbar-nav navbar-right">
+			<li><a href="signup.html"><span class="glyphicon glyphicon-pencil"></span> Sign Up</a> </li>
+			<li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a> </li>
+		</ul>
+		<div class="jumbotron row vertical-center">
+			<div class="container-fluid">
+				<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
+					First Name: <input type="text" name="fname"><br>
+					<span class="error">* <?php echo $fnameErr;?></span>
+<br><br>
+					Last Name: <input type="text" name="lname"><br>
+					<span class="error">* <?php echo $lnameErr;?></span>
+<br><br>
+					E-mail: <input type="text" name="email"><br>
+					<span class="error">* <?php echo $emailErr;?></span>
+<br><br>
+					Password: <input type="text" name="pword"><br>
+					<span class="error">* <?php echo $pwordErr;?></span>
+<br><br>
+					Re-type Password: <input type="text" name="rpword"><br>
+					<span class="error">* <?php echo $rpwordErr;?></span>
+<br><br>
+					Gender:
+					<input type="radio" name="gender" value="female">Female
+					<input type="radio" name="gender" value="male">Male
+					<input type="radio" name="gender" value="na">Prefer not to answer
+					<br>
+					<span class="error">* <?php echo $genderErr;?></span>
+<br><br>
+					How did you hear about us? <textarea name="comment" rows="5" cols="40"></textarea>
+
+					<input type="submit">
+				</form>
+
+				<?php
+				echo "<h2>Review before submitting again</h2>"
+				echo $name;
+				echo "<br>";
+				echo $email;
+				echo "<br>";
+				echo $website;
+				echo "<br>";
+				echo $comment;
+				echo "<br>";
+				echo $gender;
+				?>
+			</p>
+			<!-- Top Menu -->
+			<nav class="navbar navbar-fixed-top">
+				<div class="container">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>                        
+						</button>
+					</div>
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<div class="row">
+							<div class="col-md-12 text-center">
+								<p>
+									<ul class="nav navbar-nav">
+										<li><a href="index.html" class="btn-primary jumbofont scrollto"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+										<li><a href=#about class="btn-primary jumbofont scrollto"><span class="glyphicon glyphicon-user"></span> About</a></li>
+										<div class="dropdown-content"></div>
+										<li class="dropdown"><a href=#services class="btn-primary jumbofont dropdown-toggle scrollto" data-toggle="dropdown"><span class="glyphicon glyphicon-briefcase"></span> Services</a>
+											<ul class="dropdown-menu">
+												<div class="dropdown-content">
+													<li>
+														<a href=#hair class="jumbofont scrollto">Hair</a>
+													</li>
+													<li>
+														<a href=#nails class="jumbofont scrollto">Nails</a>
+													</li>
+													<li>
+														<a href=#waxing class="jumbofont scrollto">Waxing</a>
+													</li>
+													<li>
+														<a href=#treatments class="jumbofont scrollto">Treatments</a>
+													</li>
+												</div>
+											</ul>
+										</li>
+										<li><a href=#contacts class="btn-primary jumbofont scrollto"><span class="glyphicon glyphicon-earphone"></span> Contact</a></li>
+									</ul>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</nav>
+			<!--End Menu-->
+		</div>
+	</div>
+</div>
+
+<hr />
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12 text-center"><p><a href=#top class="btn btn-primary jumbofont scrollto">Back to the top</a></p></div>
+	</div>
+</div>
+
+<!--CSS-->
+<!--Dropdown-->
+<style type="text/css">
+	.dropdown-content {
+		display: none;
+		position: absolute;
+		background-color: #f9f9f9;
+		min-width: 160px;
+		box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+		z-index: 1;
+	}
+
+	.dropdown-content > ul > li > a {
+		color: black;
+		padding: 12px 16px;
+		text-decoration: none;
+		display: block;
+	}
+
+	.dropdown-content a:hover {background-color: ##ff0097}
+</style>
+<!--Navbar-->
+<style type="text/css">
+	/*Center the content*/
+	.navbar .navbar-nav {
+		display: inline-block;
+		float: none;
+		vertical-align: top;
+	}
+
+	.navbar .navbar-collapse {
+		text-align: center;
+	}
+	@media (min-width: 768px) {
+		.navbar .navbar-nav {
+			display: inline-block;
+			float: none;
+			vertical-align: top;
+		}
+
+		.navbar .navbar-collapse {
+			text-align: center;
+		}
+	}
+	/*Listings*/
+	.navbar, .navbar-inverse {
+		border-radius: 0;
+		border: none;
+		margin-bottom: 0;
+		min-height: 80px;
+	}
+
+	.nav li {
+		display: inline;
+		color: white;
+	}
+
+	.navbar-inverse .navbar-nav > li > a {
+		color: #ffffff;
+		font-family: "Pacifico", cursive;
+		font-size: 1.7em;
+		font-weight: 300;
+		padding: 30px 25px 33px 25px;
+	}
+
+	.navbar-inverse .navbar-nav li a:hover {
+		background-color: #444444;
+		transition: 0.7s all linear;
+		height: 100%;
+	}
+	.btn-primary{
+
+	}
+</style>
+<!--Jumbotron-->
+<style type="text/css">
+	.bg {
+		background: url('assets/img/lbs-front.jpg') no-repeat center center;
+		position: fixed; /* Placed outside of jumbotron container */
+		width: 100%;
+		height: 100%; /*same height as jumbotron */
+		top:0;
+		left:0;
+		z-index: -1;
+	}.jumbotron {
+		margin-bottom: 0px;
+		height: 400px;
+		color: white;
+		text-shadow: black 0.3em 0.3em 0.3em;
+		background:transparent;
+	} .subtitle{
+		font-size: 1em;
+		margin: 0.67em 0;
+		text-align: center;
+	} .wallpaper{
+		height:100%;
+		width:100%;
+		background-color: #ffc9e9;
+	} body{	
+		background-color: #ffc9e9;
+		-webkit-overflow-scrolling: touch;
+	}
+</style>
+<!--Vertical Align-->
+<style type="text/css">
+	.vertical-center {
+		height:100%;
+		width:100%;
+
+		text-align: center;  /* align the inline(-block) elements horizontally */
+		font: 0/0 a;         /* remove the gap between inline(-block) elements */
+	}
+
+	.vertical-center:before {    /* create a full-height inline block pseudo=element */
+		content: " ";
+		display: inline-block;
+		vertical-align: middle;    /* vertical alignment of the inline element */
+		height: 100%;
+	}
+
+	.vertical-center > .container {
+		max-width: 100%;
+
+		display: inline-block;
+		vertical-align: middle;  /* vertical alignment of the inline element */
+		/* reset the font property */
+		font: 16px/1 "Helvetica Neue", Helvetica, Arial, sans-serif;
+	}
+</style>
+<!--Parallax-->
+<style type="text/css">
+	body, html {
+		height: 100%;
+	}
+	.parallax1 {
+		/* Create the parallax scrolling effect */
+		opacity: 0.65;
+		position: relative;
+		background-attachment: fixed;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+	.parallax1 {
+		/* The image used */
+		background-image: url('assets/img/lbs-front.jpg');
+
+		/* Full height */
+		height: 100%; 
+	}
+	/* Turn off parallax scrolling for tablets and phones. Increase the pixels if needed */
+	@media only screen and (max-device-width: 1024px) {
+		.parallax {
+			background-attachment: scroll;
+		}
+	}
+</style>
+<!--Fonts-->
+<style type="text/css">
+	.jumbofont,
+	p.jumbofont,
+	h1.jumbofont {
+		font-family: 'Pacifico', cursive;
+	}
+</style>
+
+<!--JS-->
+<!-- Facebook Sync -->
+<script>
+	window.fbAsyncInit = function() {
+		FB.init({
+			appId      : '482723745132387',
+			xfbml      : true,
+			version    : 'v2.7'
+		});
+	};
+	(function(d, s, id){
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) {return;}
+		js = d.createElement(s); js.id = id;
+		js.src = "//connect.facebook.net/en_US/sdk.js";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+</script>
+<!-- External Links -->
+<script type="text/javascript">
+	jquery(document.links)
+	.filter(function(){ return this.hostname != window.location.hostname;})
+	.attr('target','_blank');
+</script>
+<!--Jumbotron-->
+<script type="text/javascript">
+	var jumboHeight = $('.jumbotron').outerHeight();
+	function parallax(){
+		var scrolled = $(window).scrollTop();
+		$('.bg').css('height', (jumboHeight-scrolled) + 'px');
+		$('.parallax').css('height', (jumboHeight-scrolled) + 'px');
+	}
+
+	$(window).scroll(function(e){
+		parallax();
+	});
+</script>
+<!-- Scroll To -->
+<script type="text/javascript">
+	$('.scrollto').click(function() {
+		var elementClicked = $(this).attr("href");
+		var destination = $(elementClicked).offset().top;
+		$("#main:not(:animated)").animate({ scrollTop: destination} );
+		return false;
+	});
+</script>
+<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="assets/js/jquery.isotope.js"></script>
+<script type="text/javascript" src="assets/js/jquery.js"></script>
+<script type="text/javascript" src="assets/js/jquery.min.js"></script>
+<script type="text/javascript" src="assets/js/jquery.slicknav.js"></script>
+<script type="text/javascript" src="assets/js/jquery.stellar.js"></script>
+<script type="text/javascript" src="assets/js/jquery.sticky.js"></script>
+<script type="text/javascript" src="assets/js/jquery.visible.js"></script>
+<script type="text/javascript" src="assets/js/modernizr.js"></script>
+<script type="text/javascript" src="assets/js/scripts.js"></script>
+<script type="text/javascript" src="assets/js/slimbox2.js"></script>
+</body>
+</html>

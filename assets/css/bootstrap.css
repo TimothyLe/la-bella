@@ -96,6 +96,13 @@ hr {
   -moz-box-sizing: content-box;
   box-sizing: content-box;
   height: 0;
+  display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    border-color: black;
+    margin: 1em 0;
+    padding: 0; 
 }
 pre {
   overflow: auto;
@@ -271,11 +278,11 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Pacifico", cursive;
   font-size: 14px;
   line-height: 1.428571429;
   color: #333333;
-  background-color: #ffffff;
+  background-color: #ffc9e9;
 }
 input,
 button,
@@ -737,6 +744,8 @@ pre code {
   margin-left: auto;
   padding-left: 20px;
   padding-right: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 @media (min-width: 768px) {
   .container {
@@ -758,6 +767,11 @@ pre code {
   margin-left: auto;
   padding-left: 20px;
   padding-right: 20px;
+    background-color: #FFF;
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #ccc;
 }
 .row {
   margin-left: -20px;
@@ -2080,8 +2094,10 @@ fieldset[disabled] .btn-default.active {
 }
 .btn-primary {
   color: #ffffff;
-  background-color: #596372;
-  border-color: #4e5764;
+  background-color: inherit;
+  border-color: #ffffff;
+  border-radius: 10px;
+
 }
 .btn-primary:hover,
 .btn-primary:focus,
@@ -2089,8 +2105,8 @@ fieldset[disabled] .btn-default.active {
 .btn-primary.active,
 .open .dropdown-toggle.btn-primary {
   color: #ffffff;
-  background-color: #474f5b;
-  border-color: #333941;
+  background-color: #ff0097;
+  border-color: #fff;
 }
 .btn-primary:active,
 .btn-primary.active,
@@ -2112,12 +2128,12 @@ fieldset[disabled] .btn-primary:active,
 .btn-primary.disabled.active,
 .btn-primary[disabled].active,
 fieldset[disabled] .btn-primary.active {
-  background-color: #596372;
+  background-color: #ff0097;
   border-color: #4e5764;
 }
 .btn-primary .badge {
   color: #596372;
-  background-color: #ffffff;
+  background-color: #ff0097;
 }
 .btn-success {
   color: #ffffff;
@@ -4376,11 +4392,10 @@ a.list-group-item.active > .badge,
 .jumbotron .h1 {
   color: inherit;
   text-align: center;
-  color: #FFFFFF;
 }
 .jumbotron p {
-  margin-bottom: 15px;
-  font-size: 21px;
+  text-align: center;
+  color: inherit;
   font-weight: 200;
 }
 .container .jumbotron {
@@ -4401,6 +4416,9 @@ a.list-group-item.active > .badge,
   .jumbotron h1,
   .jumbotron .h1 {
     font-size: 63px;
+  }
+  .jumbotron p{
+    font-size: 30px;
   }
 }
 .thumbnail {
@@ -4427,6 +4445,23 @@ a.thumbnail.active {
 .thumbnail .caption {
   padding: 9px;
   color: #333333;
+}
+.caption{
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  color: #000;
+}
+.caption span.la-bella{
+  background-color: #ff0097;
+  border-radius: 10px;
+  color: #fff;
+  padding: 18px;
+  font-size: 25px;
+  letter-spacing: 10px;
+  font-family: 'Pacifico', cursive;
 }
 .alert {
   padding: 15px;
@@ -5786,3 +5821,13 @@ button.close {
     display: none !important;
   }
 }
+/*Handler for extra small screens that resets height of pseudoelement*/
+@media (max-width: 768px) {
+  .vertical-center:before {
+    height: auto;
+    /* Or */
+    display: none;
+  }
+}
+/*Glyphicon Font Path*/
+@import url('assets/fonts/glyphicons-halflings-regular.woff');
