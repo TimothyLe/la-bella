@@ -22,6 +22,9 @@
 	<!--FAVICON-->
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 	<link rel="icon" href="favicon.ico" type="image/x-icon">
+	<!--GOOGLE PLATFORM LIBRARY-->
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+	<meta name="google-signin-client_id" content="989421914831-t0dneadhqafduucs3qmmc7ms6hjqmqlf.apps.googleusercontent.com">
 </head>
 <body itemscope itemtype="http://schema.org/WebApplication">
 	<!--PHP-->
@@ -111,6 +114,7 @@ $gender = test_input($_POST["gender"]);
 	<ul class="nav navbar-nav navbar-right">
 		<li><a href="signup.html"><span class="glyphicon glyphicon-pencil"></span> Sign Up</a> </li>
 		<li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a> </li>
+		<li><a href="#" onclick="signOut();">Sign out</a></li>
 	</ul>
 	<!-- Top Menu -->
 	<nav class="navbar navbar-fixed-top">
@@ -160,53 +164,55 @@ $gender = test_input($_POST["gender"]);
 		</div>
 	</nav>
 	<!--End Menu-->
+	<!--Sign Up Form-->
 	<div class="container container-fluid">
 		<form method="post" action="<?php 
 		echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>
 		">  
-			First Name: <input type="text" name="fname"> *<br>
-			<span class="error"><?php echo $fnameErr;?></span>
-			<br><br>
-			Last Name: <input type="text" name="lname"> *<br>
-			<span class="error"><?php echo $lnameErr;?></span>
-			<br><br>
-			E-mail: <input type="text" name="email"> *<br>
-			<span class="error"><?php echo $emailErr;?></span>
-			<br><br>
-			Password: <input type="text" name="pword"> *<br>
-			<span class="error"><?php echo $pwordErr;?></span>
-			<br><br>
-			Re-type Password: <input type="text" name="rpword">*<br>
-			<span class="error"><?php echo $rpwordErr;?></span>
-			<br><br>
-			Gender:
-			<input type="radio" name="gender" value="female">Female
-			<input type="radio" name="gender" value="male">Male
-			<input type="radio" name="gender" value="na">Prefer not to answer  *
-			<br>
-			<span class="error"><?php echo $genderErr;?></span>
-			<br><br>
-			How did you hear about us? 
-<br>
-			<textarea name="comment" rows="5" cols="40"></textarea><br><br>
+		First Name: <input type="text" name="fname"> *<br>
+		<span class="error"><?php echo $fnameErr;?></span>
+		<br><br>
+		Last Name: <input type="text" name="lname"> *<br>
+		<span class="error"><?php echo $lnameErr;?></span>
+		<br><br>
+		E-mail: <input type="text" name="email"> *<br>
+		<span class="error"><?php echo $emailErr;?></span>
+		<br><br>
+		Password: <input type="text" name="pword"> *<br>
+		<span class="error"><?php echo $pwordErr;?></span>
+		<br><br>
+		Re-type Password: <input type="text" name="rpword">*<br>
+		<span class="error"><?php echo $rpwordErr;?></span>
+		<br><br>
+		Gender:
+		<input type="radio" name="gender" value="female">Female
+		<input type="radio" name="gender" value="male">Male
+		<input type="radio" name="gender" value="na">Prefer not to answer  *
+		<br>
+		<span class="error"><?php echo $genderErr;?></span>
+		<br><br>
+		How did you hear about us? 
+		<br>
+		<textarea name="comment" rows="5" cols="40"></textarea><br><br>
 
-			<input type="submit"><br><br>
-			<strong>Already have an account? <a href="login.html" style="color: blue;">Login</a> </strong>
-		</form><br>
+		<input type="submit"><br><br>
+		<strong>Already have an account? <a href="login.html" style="color: blue;">Login</a> </strong>
+	</form><br>
 
-		<?php
-		echo "<h2>Review before submitting again</h2>"
-		echo $name;
-		echo "<br>";
-		echo $email;
-		echo "<br>";
-		echo $website;
-		echo "<br>";
-		echo $comment;
-		echo "<br>";
-		echo $gender;
-		?>
-	</div>
+	<?php
+	echo "<h2>Review before submitting again</h2>"
+	echo $name;
+	echo "<br>";
+	echo $email;
+	echo "<br>";
+	echo $website;
+	echo "<br>";
+	echo $comment;
+	echo "<br>";
+	echo $gender;
+	?>
+</div>
+<!--End Sign Up-->
 </p>
 
 <hr />

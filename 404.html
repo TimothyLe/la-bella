@@ -22,6 +22,9 @@
 	<!--FAVICON-->
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 	<link rel="icon" href="favicon.ico" type="image/x-icon">
+	<!--GOOGLE PLATFORM LIBRARY-->
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+	<meta name="google-signin-client_id" content="989421914831-t0dneadhqafduucs3qmmc7ms6hjqmqlf.apps.googleusercontent.com">
 </head>
 <body itemscope itemtype="http://schema.org/WebApplication">
 	<p id="top">
@@ -29,6 +32,7 @@
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="signup.html"><span class="glyphicon glyphicon-pencil"></span> Sign Up</a> </li>
 				<li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a> </li>
+				<li><a href="#" onclick="signOut();">Sign out</a></li>
 			</ul>
 			<div class="jumbotron row vertical-center">
 				<div class="container">
