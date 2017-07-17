@@ -20,10 +20,11 @@
 		@import url('https://fonts.googleapis.com/css?family=Pacifico');
 	</style>
 	<!--FAVICON-->
-	<link href="favicon.ico" rel="shortcut icon">
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body itemscope itemtype="http://schema.org/WebApplication">
-<!--PHP-->
+	<!--PHP-->
 	<?php
 	// define variables and set to empty values
 	$name = $email = $gender = $comment = $website = "";
@@ -51,164 +52,168 @@ $nameErr = $emailErr = $genderErr = $websiteErr = "";
 $name = $email = $gender = $comment = $website = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  if (empty($_POST["fname"])) {
-    $fnameErr = "First Name is required";
-  } else {
-    $fname = test_input($_POST["fname"]);
-    // checks for letters and whitespaces
-	if (!preg_match("/^[a-zA-Z ]*$/",$fname)) {
-  $fnameErr = "Only letters and white space allowed"; 
+if (empty($_POST["fname"])) {
+$fnameErr = "First Name is required";
+} else {
+$fname = test_input($_POST["fname"]);
+// checks for letters and whitespaces
+if (!preg_match("/^[a-zA-Z ]/",$fname)) {
+$fnameErr = "Only letters and white space allowed"; 
 }
-  }
+}
 
-  if (empty($_POST["lname"])) {
-    $lnameErr = "Last Name is required";
-  } else {
-    $lname = test_input($_POST["lname"]);
-    // checks for letters and whitespaces
-	if (!preg_match("/^[a-zA-Z ]*$/",$lname)) {
-  $lnameErr = "Only letters and white space allowed"; 
-  }
+if (empty($_POST["lname"])) {
+$lnameErr = "Last Name is required";
+} else {
+$lname = test_input($_POST["lname"]);
+// checks for letters and whitespaces
+if (!preg_match("/^[a-zA-Z ]/",$lname)) {
+$lnameErr = "Only letters and white space allowed"; 
+}
 
-  if (empty($_POST["email"])) {
-    $emailErr = "Email is required";
-  } else {
-    $email = test_input($_POST["email"]);
-    // checks email format
+if (empty($_POST["email"])) {
+$emailErr = "Email is required";
+} else {
+$email = test_input($_POST["email"]);
+// checks email format
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-  $emailErr = "Invalid email format"; 
+$emailErr = "Invalid email format"; 
 }
-  }
+}
 
-  if (empty($_POST["pword"])) {
-    $pwordErr = "Password is required";
-  } else {
-    $pword = test_input($_POST["pword"]);
-  }
+if (empty($_POST["pword"])) {
+$pwordErr = "Password is required";
+} else {
+$pword = test_input($_POST["pword"]);
+}
 
-  if (empty($_POST["rpword"])) {
-    $rpwordErr = "Re-type Password is required";
-  } else {
-    $rpword = test_input($_POST["rpword"]);
-  }
+if (empty($_POST["rpword"])) {
+$rpwordErr = "Re-type Password is required";
+} else {
+$rpword = test_input($_POST["rpword"]);
+}
 
-  if (empty($_POST["comment"])) {
-    $comment = "";
-  } else {
-    $comment = test_input($_POST["comment"]);
-  }
+if (empty($_POST["comment"])) {
+$comment = "";
+} else {
+$comment = test_input($_POST["comment"]);
+}
 
-  if (empty($_POST["gender"])) {
-    $genderErr = "Gender is required";
-  } else {
-    $gender = test_input($_POST["gender"]);
-  }
+if (empty($_POST["gender"])) {
+$genderErr = "Gender is required";
+} else {
+$gender = test_input($_POST["gender"]);
+}
 }
 ?>
 <!--END PHP-->
-<p id="top">
-	<div class="wallpaper">
-		<ul class="nav navbar-nav navbar-right">
-			<li><a href="signup.html"><span class="glyphicon glyphicon-pencil"></span> Sign Up</a> </li>
-			<li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a> </li>
-		</ul>
-		<div class="jumbotron row vertical-center">
-			<div class="container-fluid">
-				<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
-					First Name: <input type="text" name="fname"><br>
-					<span class="error">* <?php echo $fnameErr;?></span>
-<br><br>
-					Last Name: <input type="text" name="lname"><br>
-					<span class="error">* <?php echo $lnameErr;?></span>
-<br><br>
-					E-mail: <input type="text" name="email"><br>
-					<span class="error">* <?php echo $emailErr;?></span>
-<br><br>
-					Password: <input type="text" name="pword"><br>
-					<span class="error">* <?php echo $pwordErr;?></span>
-<br><br>
-					Re-type Password: <input type="text" name="rpword"><br>
-					<span class="error">* <?php echo $rpwordErr;?></span>
-<br><br>
-					Gender:
-					<input type="radio" name="gender" value="female">Female
-					<input type="radio" name="gender" value="male">Male
-					<input type="radio" name="gender" value="na">Prefer not to answer
-					<br>
-					<span class="error">* <?php echo $genderErr;?></span>
-<br><br>
-					How did you hear about us? <textarea name="comment" rows="5" cols="40"></textarea>
-
-					<input type="submit">
-				</form>
-
-				<?php
-				echo "<h2>Review before submitting again</h2>"
-				echo $name;
-				echo "<br>";
-				echo $email;
-				echo "<br>";
-				echo $website;
-				echo "<br>";
-				echo $comment;
-				echo "<br>";
-				echo $gender;
-				?>
-			</p>
-			<!-- Top Menu -->
-			<nav class="navbar navbar-fixed-top">
-				<div class="container">
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>                        
-						</button>
-					</div>
-					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-						<div class="row">
-							<div class="col-md-12 text-center">
-								<p>
-									<ul class="nav navbar-nav">
-										<li><a href="index.html" class="btn-primary jumbofont scrollto"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-										<li><a href=#about class="btn-primary jumbofont scrollto"><span class="glyphicon glyphicon-user"></span> About</a></li>
-										<div class="dropdown-content"></div>
-										<li class="dropdown"><a href=#services class="btn-primary jumbofont dropdown-toggle scrollto" data-toggle="dropdown"><span class="glyphicon glyphicon-briefcase"></span> Services</a>
-											<ul class="dropdown-menu">
-												<div class="dropdown-content">
-													<li>
-														<a href=#hair class="jumbofont scrollto">Hair</a>
-													</li>
-													<li>
-														<a href=#nails class="jumbofont scrollto">Nails</a>
-													</li>
-													<li>
-														<a href=#waxing class="jumbofont scrollto">Waxing</a>
-													</li>
-													<li>
-														<a href=#treatments class="jumbofont scrollto">Treatments</a>
-													</li>
-												</div>
-											</ul>
-										</li>
-										<li><a href=#contacts class="btn-primary jumbofont scrollto"><span class="glyphicon glyphicon-earphone"></span> Contact</a></li>
-									</ul>
-								</p>
+<p id="top" style="height: 33%; width: 100%;">
+	<ul class="nav navbar-nav navbar-right">
+		<li><a href="signup.html"><span class="glyphicon glyphicon-pencil"></span> Sign Up</a> </li>
+		<li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a> </li>
+	</ul>
+	<!-- Top Menu -->
+	<nav class="navbar navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>                        
+				</button>
+			</div>
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<div class="row">
+					<div class="col-md-12 text-center">
+						<p>
+							<div class="navbar-header">
+								<a class="navbar-brand jumbofont" href="index.html">La Bella Salon</a>
 							</div>
-						</div>
+							<ul class="nav navbar-nav">
+								<li><a href="index.html" class="btn-primary jumbofont scrollto"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+								<li><a href="index.html#about" class="btn-primary jumbofont scrollto"><span class="glyphicon glyphicon-user"></span> About</a></li>
+								<div class="dropdown-content"></div>
+								<li class="dropdown"><a href="index.html#services" class="btn-primary jumbofont dropdown-toggle scrollto" data-toggle="dropdown"><span class="glyphicon glyphicon-briefcase"></span> Services</a>
+									<ul class="dropdown-menu">
+										<div class="dropdown-content">
+											<li>
+												<a href="index.html#hair" class="jumbofont scrollto">Hair</a>
+											</li>
+											<li>
+												<a href="index.html#nails" class="jumbofont scrollto">Nails</a>
+											</li>
+											<li>
+												<a href="index.html#waxing" class="jumbofont scrollto">Waxing</a>
+											</li>
+											<li>
+												<a href="index.html#treatments" class="jumbofont scrollto">Treatments</a>
+											</li>
+										</div>
+									</ul>
+								</li>
+								<li><a href="index.html#contacts" class="btn-primary jumbofont scrollto"><span class="glyphicon glyphicon-earphone"></span> Contact</a></li>
+							</ul>
+						</p>
 					</div>
 				</div>
-			</nav>
-			<!--End Menu-->
+			</div>
 		</div>
+	</nav>
+	<!--End Menu-->
+	<div class="container container-fluid">
+		<form method="post" action="<?php 
+		echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>
+		">  
+			First Name: <input type="text" name="fname"> *<br>
+			<span class="error"><?php echo $fnameErr;?></span>
+			<br><br>
+			Last Name: <input type="text" name="lname"> *<br>
+			<span class="error"><?php echo $lnameErr;?></span>
+			<br><br>
+			E-mail: <input type="text" name="email"> *<br>
+			<span class="error"><?php echo $emailErr;?></span>
+			<br><br>
+			Password: <input type="text" name="pword"> *<br>
+			<span class="error"><?php echo $pwordErr;?></span>
+			<br><br>
+			Re-type Password: <input type="text" name="rpword">*<br>
+			<span class="error"><?php echo $rpwordErr;?></span>
+			<br><br>
+			Gender:
+			<input type="radio" name="gender" value="female">Female
+			<input type="radio" name="gender" value="male">Male
+			<input type="radio" name="gender" value="na">Prefer not to answer  *
+			<br>
+			<span class="error"><?php echo $genderErr;?></span>
+			<br><br>
+			How did you hear about us? 
+<br>
+			<textarea name="comment" rows="5" cols="40"></textarea><br><br>
+
+			<input type="submit"><br><br>
+			<strong>Already have an account? <a href="login.html" style="color: blue;">Login</a> </strong>
+		</form><br>
+
+		<?php
+		echo "<h2>Review before submitting again</h2>"
+		echo $name;
+		echo "<br>";
+		echo $email;
+		echo "<br>";
+		echo $website;
+		echo "<br>";
+		echo $comment;
+		echo "<br>";
+		echo $gender;
+		?>
 	</div>
-</div>
+</p>
 
 <hr />
 
 <div class="container">
 	<div class="row">
-		<div class="col-md-12 text-center"><p><a href=#top class="btn btn-primary jumbofont scrollto">Back to the top</a></p></div>
+		<div class="col-md-12 text-center"><p><a href="index.html" class="btn btn-primary jumbofont scrollto">Back to Home</a></p></div>
 	</div>
 </div>
 
@@ -235,7 +240,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 </style>
 <!--Navbar-->
 <style type="text/css">
-	/*Center the content*/
+	/enter the content
 	.navbar .navbar-nav {
 		display: inline-block;
 		float: none;
@@ -256,7 +261,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 			text-align: center;
 		}
 	}
-	/*Listings*/
+	/istings
 	.navbar, .navbar-inverse {
 		border-radius: 0;
 		border: none;
@@ -290,9 +295,9 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 <style type="text/css">
 	.bg {
 		background: url('assets/img/lbs-front.jpg') no-repeat center center;
-		position: fixed; /* Placed outside of jumbotron container */
+		position: fixed; /Placed outside of jumbotron container 
 		width: 100%;
-		height: 100%; /*same height as jumbotron */
+		height: 100%; /ame height as jumbotron 
 		top:0;
 		left:0;
 		z-index: -1;
@@ -321,14 +326,14 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 		height:100%;
 		width:100%;
 
-		text-align: center;  /* align the inline(-block) elements horizontally */
-		font: 0/0 a;         /* remove the gap between inline(-block) elements */
+		text-align: center;  /align the inline(-block) elements horizontally 
+		font: 0/0 a;         /remove the gap between inline(-block) elements 
 	}
 
-	.vertical-center:before {    /* create a full-height inline block pseudo=element */
+	.vertical-center:before {    /create a full-height inline block pseudo=element 
 		content: " ";
 		display: inline-block;
-		vertical-align: middle;    /* vertical alignment of the inline element */
+		vertical-align: middle;    /vertical alignment of the inline element 
 		height: 100%;
 	}
 
@@ -336,8 +341,8 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 		max-width: 100%;
 
 		display: inline-block;
-		vertical-align: middle;  /* vertical alignment of the inline element */
-		/* reset the font property */
+		vertical-align: middle;  /vertical alignment of the inline element 
+		/reset the font property 
 		font: 16px/1 "Helvetica Neue", Helvetica, Arial, sans-serif;
 	}
 </style>
@@ -347,7 +352,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 		height: 100%;
 	}
 	.parallax1 {
-		/* Create the parallax scrolling effect */
+		/Create the parallax scrolling effect 
 		opacity: 0.65;
 		position: relative;
 		background-attachment: fixed;
@@ -356,13 +361,13 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 		background-size: cover;
 	}
 	.parallax1 {
-		/* The image used */
+		/The image used 
 		background-image: url('assets/img/lbs-front.jpg');
 
-		/* Full height */
+		/Full height 
 		height: 100%; 
 	}
-	/* Turn off parallax scrolling for tablets and phones. Increase the pixels if needed */
+	/Turn off parallax scrolling for tablets and phones. Increase the pixels if needed 
 	@media only screen and (max-device-width: 1024px) {
 		.parallax {
 			background-attachment: scroll;

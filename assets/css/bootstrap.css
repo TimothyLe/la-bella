@@ -95,8 +95,10 @@ figure {
 hr {
   -moz-box-sizing: content-box;
   box-sizing: content-box;
-  height: 0;
   display: block;
+  clear: both;
+  width: 90%;
+  background-color: #000FFF;
     height: 1px;
     border: 0;
     border-top: 1px solid #ccc;
@@ -3016,6 +3018,7 @@ input[type="button"].btn-block {
 }
 .dropdown {
   position: relative;
+  display: inline-block;
 }
 .dropdown-toggle:focus {
   outline: 0;
@@ -3733,6 +3736,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   right: 0;
   left: 0;
   z-index: 1030;
+  background-color: pink;
+  opacity: 0.75;
 }
 @media (min-width: 768px) {
   .navbar-fixed-top,

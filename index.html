@@ -20,13 +20,14 @@
 		@import url('https://fonts.googleapis.com/css?family=Pacifico');
 	</style>
 	<!--FAVICON-->
-	<link href="favicon.ico" rel="shortcut icon">
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body itemscope itemtype="http://schema.org/WebApplication">
 	<p id="top">
 		<div class="wallpaper">
 			<ul class="nav navbar-nav navbar-right">
-			<li><a href="signup.html"><span class="glyphicon glyphicon-pencil"></span> Sign Up</a> </li>
+				<li><a href="signup.html"><span class="glyphicon glyphicon-pencil"></span> Sign Up</a> </li>
 				<li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a> </li>
 			</ul>
 			<div class="jumbotron row vertical-center">
@@ -97,6 +98,8 @@
 			</p>
 		</p>
 		<br>
+		<hr>
+		<br>
 		<p id=services>
 			<h2>Services</h2>
 			<p>
@@ -104,8 +107,13 @@
 			</p>
 		</p>
 		<br>
-		<p id=hair> 
-			<div class="row row-fluid">
+		<hr>
+		<br>
+		<div class="row row-fluid">
+			<p id=hair> 
+				<div class="col-md-6">
+					<img src="assets/img/hair.jpg" alt="Hair" class="picture">
+				</div>
 				<div class="col-md-6 col-md-offset-6">
 					<h2>Hair</h2>
 					<p>
@@ -114,8 +122,13 @@
 				</div>
 			</p>
 			<br>
+			<hr>
+			<br>
 			<p id=nails>
 				<div class="col-md-6">
+					<img src="assets/img/nails.jpg" alt="Nails" class="picture">
+				</div>
+				<div class="col-md-6 col-md-offset-6">
 					<h2>Nails</h2>
 					<p>
 						Lorem ipsum dolor sit amet, vix soluta instructior ne, ea vis natum animal repudiandae. Velit delectus vim no, in elit accusam eligendi vel. Prima malorum praesent ut mei, sea sale intellegam ex. Sea rebum feugiat id, sea saepe nemore eu. Verterem prodesset consectetuer cu duo, quas euismod eu mea, suas dicunt mentitum at vel.
@@ -123,7 +136,12 @@
 				</div>
 			</p>
 			<br>
+			<hr>
+			<br>
 			<p id=waxing>
+				<div class="col-md-6">
+					<img src="assets/img/wax.jpg" alt="Wax" class="picture">
+				</div>
 				<div class="col-md-6 col-md-offset-6">
 					<h2>Waxing</h2>
 					<p>
@@ -132,8 +150,13 @@
 				</div>
 			</p>
 			<br>
+			<hr>
+			<br>
 			<p id=treatments>
 				<div class="col-md-6">
+					<img src="assets/img/treatment.jpg" alt="Treatments" class="picture">
+				</div>
+				<div class="col-md-6 col-md-offset-6">
 					<h2>Treatments</h2>
 					<p>
 						Lorem ipsum dolor sit amet, vix soluta instructior ne, ea vis natum animal repudiandae. Velit delectus vim no, in elit accusam eligendi vel. Prima malorum praesent ut mei, sea sale intellegam ex. Sea rebum feugiat id, sea saepe nemore eu. Verterem prodesset consectetuer cu duo, quas euismod eu mea, suas dicunt mentitum at vel.
@@ -141,6 +164,8 @@
 				</div>
 			</div>
 		</p>
+		<br>
+		<hr>
 		<br>
 		<p id=contacts>
 			<h2>Contact</h2>
@@ -160,6 +185,17 @@
 	</div>
 
 	<!--CSS-->
+	<!--For Pictures-->
+	<style type="text/css">
+		.picture {
+			height: 250px;
+			width: 250px;
+			border-radius: 50%;
+			display: inline-block;
+			vertical-align: middle;
+			margin-left: 100px;
+		}
+	</style>
 	<!--Dropdown-->
 	<style type="text/css">
 		.dropdown-content {
