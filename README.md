@@ -11,3 +11,5 @@ What you will find:
 - Yelp ratings integrated  
   
 **Work In Progress, Coming Soon!**  
+**View Progress Here**  
+[La Bella Website](https://timothyle.github.io/la-bella/index.html)
