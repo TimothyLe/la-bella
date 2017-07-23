@@ -25,6 +25,13 @@
 	<!--GOOGLE PLATFORM LIBRARY-->
 	<script src="https://apis.google.com/js/platform.js" async defer></script>
 	<meta name="google-signin-client_id" content="989421914831-t0dneadhqafduucs3qmmc7ms6hjqmqlf.apps.googleusercontent.com">
+
+	<style type="text/css">
+				#map{
+					height 400px;
+					width: 100%;
+				}
+			</style>
 </head>
 <body itemscope itemtype="http://schema.org/WebApplication">
 	<p id="top">
@@ -125,7 +132,7 @@
 				<div class="">
 					<img src="assets/img/hair.jpg" alt="Hair" class="picture pull-left">
 				</div>
-				<div class="col-md-6 col-md-offset-6">
+				<div class="col-md-offset-6">
 					<h2>Hair</h2>
 					<p>
 						Lorem ipsum dolor sit amet, vix soluta instructior ne, ea vis natum animal repudiandae. Velit delectus vim no, in elit accusam eligendi vel. Prima malorum praesent ut mei, sea sale intellegam ex. Sea rebum feugiat id, sea saepe nemore eu. Verterem prodesset consectetuer cu duo, quas euismod eu mea, suas dicunt mentitum at vel.
@@ -136,10 +143,10 @@
 			<hr>
 			<br>
 			<p id=nails>
-				<div class="col-md-6">
+				<div class="">
 					<img src="assets/img/nails.jpg" alt="Nails" class="picture pull-left">
 				</div>
-				<div class="col-md-6 col-md-offset-6">
+				<div class="col-md-offset-6">
 					<h2>Nails</h2>
 					<p>
 						Lorem ipsum dolor sit amet, vix soluta instructior ne, ea vis natum animal repudiandae. Velit delectus vim no, in elit accusam eligendi vel. Prima malorum praesent ut mei, sea sale intellegam ex. Sea rebum feugiat id, sea saepe nemore eu. Verterem prodesset consectetuer cu duo, quas euismod eu mea, suas dicunt mentitum at vel.
@@ -150,10 +157,10 @@
 			<hr>
 			<br>
 			<p id=waxing>
-				<div class="col-md-6">
+				<div class="">
 					<img src="assets/img/wax.jpg" alt="Wax" class="picture pull-left">
 				</div>
-				<div class="col-md-6 col-md-offset-6">
+				<div class="col-md-offset-6">
 					<h2>Waxing</h2>
 					<p>
 						Lorem ipsum dolor sit amet, vix soluta instructior ne, ea vis natum animal repudiandae. Velit delectus vim no, in elit accusam eligendi vel. Prima malorum praesent ut mei, sea sale intellegam ex. Sea rebum feugiat id, sea saepe nemore eu. Verterem prodesset consectetuer cu duo, quas euismod eu mea, suas dicunt mentitum at vel.
@@ -164,10 +171,10 @@
 			<hr>
 			<br>
 			<p id=treatments>
-				<div class="col-md-6">
+				<div class="">
 					<img src="assets/img/treatment.jpg" alt="Treatments" class="picture pull-left">
 				</div>
-				<div class="col-md-6 col-md-offset-6">
+				<div class="col-md-offset-6">
 					<h2>Treatments</h2>
 					<p>
 						Lorem ipsum dolor sit amet, vix soluta instructior ne, ea vis natum animal repudiandae. Velit delectus vim no, in elit accusam eligendi vel. Prima malorum praesent ut mei, sea sale intellegam ex. Sea rebum feugiat id, sea saepe nemore eu. Verterem prodesset consectetuer cu duo, quas euismod eu mea, suas dicunt mentitum at vel.
@@ -183,6 +190,35 @@
 			<p>
 				Lorem ipsum dolor sit amet, vix soluta instructior ne, ea vis natum animal repudiandae. Velit delectus vim no, in elit accusam eligendi vel. Prima malorum praesent ut mei, sea sale intellegam ex. Sea rebum feugiat id, sea saepe nemore eu. Verterem prodesset consectetuer cu duo, quas euismod eu mea, suas dicunt mentitum at vel.
 			</p>
+			<div id="map"></div>
+			<script type="text/javascript">
+				function initMap(){
+					// Map options
+					var options = {
+						zoom:8,
+						center: {lat:37.3359977,lng:-121.885055}
+					}
+
+					// New map
+					var map = new 
+					google.maps.Map(document.getElementById('map'), options);
+
+					// Add marker
+					var marker = new google.maps.Marker({
+						position: {lat:-121.885055,lng:-121.8802},
+						map:map
+						icon: 'assets/img/la-bella.png'
+					});
+
+					var infowindow = new google.maps.InfoWindow({
+						content:'<h1>La Bella Salon</h1>'
+					});
+
+					marker.addListener('click', function(){
+						infoWindow.open(map, marker);
+					});
+				}
+			</script>
 		</p>
 		<br>
 	</div>
@@ -408,6 +444,8 @@
 			return false;
 		});
 	</script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhAEv-G4qi5uJ3BV66ifamjvmFbV5CU0g&callback=initMap"
+    async defer></script>
 	<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="assets/js/jquery.isotope.js"></script>
 	<script type="text/javascript" src="assets/js/jquery.js"></script>
